@@ -19,7 +19,6 @@ fun main() {
             continue
         }
 
-
         var strike = 0
         var ball = 0
 
