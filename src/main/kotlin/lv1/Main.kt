@@ -8,4 +8,10 @@ fun main() {
     print("게임을 시작합니다! 원하시는 숫자 3자리를 입력해주세요 : ")
 
     val input: Int = readln().toInt()
+    val answerList = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
+    val answerNumber = answerList.shuffled()
+
+    println(answerNumber)
+
+
 }
