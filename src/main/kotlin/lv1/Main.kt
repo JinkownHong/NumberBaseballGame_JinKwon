@@ -11,7 +11,17 @@ fun main() {
 
 
     while (true) {
-        val inputList = readln().map { it.digitToInt() }
+        val input = readln()
+        val inputList = input.map { it.digitToInt() }
+
+        if (input.length != 3) {
+            print("세자리 수를 입력해주세요 : ")
+            continue
+        }
+        if (inputList[0] == 0 || inputList[1] == 0 || inputList[2] == 0) {
+            print("숫자 0은 입력할 수 없습니다 : ")
+            continue
+        }
 
 
         if (inputList[0] == inputList[1] || inputList[0] == inputList[2] || inputList[1] == inputList[2]) {
