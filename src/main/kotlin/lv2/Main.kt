@@ -2,22 +2,31 @@ package org.example.lv2
 
 fun main() {
     var ctGame = 0
-    var map: MutableMap<Int, Int> = mutableMapOf()
+    val map: MutableMap<Int, Int> = mutableMapOf()
 
     while (true) {
-        var ctTry = 1
+        var ctTry = 0
 
-        print("1.Game Start / 2.View Record / 3. End The Game : ")
-        val selectMenu = readln().toInt()
+        print("1.Game Start 2.View Record 3. End The Game : ")
+        val selectMenu = readln()
+
+        if (ctGame == 0 && selectMenu == "2") {
+            println("현재까지 확인되는 기록이 없습니다!")
+            continue
+        }
 
         when {
-            selectMenu == 3 -> {
+            selectMenu == "3" -> {
                 println("See You Next Time!");break
             }
 
-            selectMenu == 2 -> {
-                for (i in 1..map.size)
-                    println("$i GAME : ${map[i]} TRY")
+            selectMenu == "2" -> {
+                for (i in 1..map.size) println("$i GAME : ${map[i]} TRY")
+                continue
+            }
+
+            selectMenu != "1" -> {
+                println("1, 2, 3 중 하나만 입력해주세요!")
                 continue
             }
         }
@@ -69,6 +78,7 @@ fun main() {
                     }
                 }
             }
+            ctTry++
             when {
                 strike == 3 -> {
                     println("정답입니다!"); break
@@ -79,7 +89,6 @@ fun main() {
                 strike == 0 && ball != 0 -> println("${ball}볼입니다.")
                 else -> println("일치하는 숫자가 없습니다.")
             }
-            ctTry++
         }
         ctGame++
         map.put(ctGame, ctTry)
