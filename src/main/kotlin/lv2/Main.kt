@@ -1,63 +1,90 @@
 package org.example.lv2
 
 fun main() {
-    println("환영합니다! 숫자 야구게임을 시작합니다.")
-    println("Rule1 : 숫자 3자리를 입력해주세요.")
-    println("Rule2 : 1에서 9 사이 숫자를 입력해야하며 동일한 숫자는 입력할 수 없습니다.")
-    print("게임을 시작합니다! 원하시는 숫자 3자리를 입력해주세요 : ")
+    var ctGame = 0
+    var map: MutableMap<Int, Int> = mutableMapOf()
 
-    val oneToNineList = mutableListOf<Int>(1, 2, 3, 4, 5, 6, 7, 8, 9)
-    val answerList = oneToNineList.shuffled().slice(0..2)
-
+    // 이 곳애 맵을 선언한다 game, try
 
     while (true) {
-        val input = readln()
+        var ctTry = 1
 
-        try {
-            val test: Int = input.toInt()
-        } catch (e: NumberFormatException) {
-            print("숫자를 입력해주세요! :")
-            continue
-        }
+        print("1.Game Start / 2.View Record / 3. End The 1Game : ")
+        val selectMenu = readln().toInt()
 
-        val inputList = input.map { it.digitToInt() }
-
-        if (input.length != 3) {
-            print("세자리 수를 입력해주세요 : ")
-            continue
-        }
-        if (inputList[0] == 0 || inputList[1] == 0 || inputList[2] == 0) {
-            print("숫자 0은 입력할 수 없습니다 : ")
-            continue
-        }
-
-        if (inputList[0] == inputList[1] || inputList[0] == inputList[2] || inputList[1] == inputList[2]) {
-            print("동일한 숫자를 입력할 수 없습니다 :")
-            continue
-        }
-
-        var strike = 0
-        var ball = 0
-
-        for (index in 0..2) {
-            if (inputList[index] == answerList[index]) {
-                strike += 1
+        when {
+            selectMenu == 3 -> {
+                println("See You Next Time!");break
             }
-            for (i in 0..2) {
-                if (inputList[index] != answerList[index] && inputList[index] == answerList[i]) {
-                    ball += 1
+
+            selectMenu == 2 -> {
+                for(i in 1 .. map.size)
+                println("$i GAME : ${map[i]} TRY")
+                continue
+            }
+        }
+
+        println("Rule1 : 숫자 3자리를 입력해주세요.")
+        println("Rule2 : 1에서 9 사이 숫자를 입력해야하며 동일한 숫자는 입력할 수 없습니다.")
+        print("게임을 시작합니다! 원하시는 숫자 3자리를 입력해주세요 : ")
+
+        val oneToNineList = mutableListOf<Int>(1, 2, 3, 4, 5, 6, 7, 8, 9)
+        val answerList = oneToNineList.shuffled().slice(0..2)
+
+
+        while (true) {
+            val input = readln()
+
+            try {
+                val test: Int = input.toInt()
+            } catch (e: NumberFormatException) {
+                print("숫자를 입력해주세요! :")
+                continue
+            }
+
+            val inputList = input.map { it.digitToInt() }
+
+            if (input.length != 3) {
+                print("세자리 수를 입력해주세요 : ")
+                continue
+            }
+            if (inputList[0] == 0 || inputList[1] == 0 || inputList[2] == 0) {
+                print("숫자 0은 입력할 수 없습니다 : ")
+                continue
+            }
+
+            if (inputList[0] == inputList[1] || inputList[0] == inputList[2] || inputList[1] == inputList[2]) {
+                print("동일한 숫자를 입력할 수 없습니다 :")
+                continue
+            }
+
+            var strike = 0
+            var ball = 0
+
+            for (index in 0..2) {
+                if (inputList[index] == answerList[index]) {
+                    strike += 1
+                }
+                for (i in 0..2) {
+                    if (inputList[index] != answerList[index] && inputList[index] == answerList[i]) {
+                        ball += 1
+                    }
                 }
             }
-        }
-        when {
-            strike == 3 -> {
-                println("정답입니다!"); break
-            }
+            when {
+                strike == 3 -> {
+                    println("정답입니다!"); break
+                }
 
-            strike != 0 && ball != 0 -> println("${strike}스트라이크 ${ball}볼 입니다.")
-            strike != 0 && ball == 0 -> println("${strike}스트라이크입니다.")
-            strike == 0 && ball != 0 -> println("${ball}볼입니다.")
-            else -> println("일치하는 숫자가 없습니다.")
+                strike != 0 && ball != 0 -> println("${strike}스트라이크 ${ball}볼 입니다.")
+                strike != 0 && ball == 0 -> println("${strike}스트라이크입니다.")
+                strike == 0 && ball != 0 -> println("${ball}볼입니다.")
+                else -> println("일치하는 숫자가 없습니다.")
+            }
+            ctTry ++
         }
+        ctGame++
+        map.put(ctGame, ctTry)
+//        map[ctGame] = ctTry
     }
 }
