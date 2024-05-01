@@ -12,6 +12,14 @@ fun main() {
 
     while (true) {
         val input = readln()
+
+        try {
+            val test: Int = input.toInt()
+        } catch (e: NumberFormatException) {
+            print("숫자를 입력해주세요! :")
+            continue
+        }
+
         val inputList = input.map { it.digitToInt() }
 
         if (input.length != 3) {
@@ -23,9 +31,8 @@ fun main() {
             continue
         }
 
-
         if (inputList[0] == inputList[1] || inputList[0] == inputList[2] || inputList[1] == inputList[2]) {
-            print("동일한 숫자를 입력했습니다. 다시 입력해주세요 :")
+            print("동일한 숫자를 입력할 수 없습니다 :")
             continue
         }
 
