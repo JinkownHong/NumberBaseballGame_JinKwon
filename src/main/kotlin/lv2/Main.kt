@@ -4,12 +4,10 @@ fun main() {
     var ctGame = 0
     var map: MutableMap<Int, Int> = mutableMapOf()
 
-    // 이 곳애 맵을 선언한다 game, try
-
     while (true) {
         var ctTry = 1
 
-        print("1.Game Start / 2.View Record / 3. End The 1Game : ")
+        print("1.Game Start / 2.View Record / 3. End The Game : ")
         val selectMenu = readln().toInt()
 
         when {
@@ -18,8 +16,8 @@ fun main() {
             }
 
             selectMenu == 2 -> {
-                for(i in 1 .. map.size)
-                println("$i GAME : ${map[i]} TRY")
+                for (i in 1..map.size)
+                    println("$i GAME : ${map[i]} TRY")
                 continue
             }
         }
@@ -81,7 +79,7 @@ fun main() {
                 strike == 0 && ball != 0 -> println("${ball}볼입니다.")
                 else -> println("일치하는 숫자가 없습니다.")
             }
-            ctTry ++
+            ctTry++
         }
         ctGame++
         map.put(ctGame, ctTry)
