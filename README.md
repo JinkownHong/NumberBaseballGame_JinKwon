@@ -82,3 +82,11 @@ while(true) 조건을 주어 게임 실행 단 전체를 감싸고, 총 3개의 
 - 객체 지향은 과제 해설 이후 주말동안 다시 진행해 볼 예정입니다.
 
   <img src="https://i.ibb.co/RgDdR67/IMG-0007.jpg" width="400">
+
+<br/>
+
+## 🔨 빌드 환경
+
+* Language: Kotlin
+* IDE: Intellij
+* SDK: Eclipse Temurin 22.0.1
