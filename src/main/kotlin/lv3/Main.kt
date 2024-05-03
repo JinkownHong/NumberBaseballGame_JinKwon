@@ -1,4 +1,4 @@
-package lv2
+package lv3
 
 fun main() {
     var countGame = 0

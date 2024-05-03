@@ -1,4 +1,4 @@
-package org.example.lv1
+package lv1
 
 fun main() {
     println("환영합니다! 숫자 야구게임을 시작합니다.")
