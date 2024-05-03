@@ -69,5 +69,4 @@
 - 객체 지향 관련 이전 강의를 돌려보며 직접 구현해볼 수 있겠다 생각했으나 실제로 해보는 것은 정말 다른 일이었습니다.
 - 객체 지향은 과제 해설 이후 주말동안 다시 진행해 볼 예정입니다.
 
-  <img src="https://techcourse-storage.s3.ap-northeast-2.amazonaws.com/2020-03-16T10:41:53.786image.png" width="400">
   <img src="https://i.ibb.co/RgDdR67/IMG-0007.jpg" width="400">
